@@ -1,11 +1,9 @@
 from pynput.mouse import Button, Controller
-import time
+import time, sys
 
-#todo: make dynamic
-button = Button.left
+button = Button[sys.argv[1]]
 mouse = Controller()
 
 while True:
-    # print('spam')
-    mouse.click(Button.left)
-    time.sleep(0.1)
+    mouse.click(button)
+    time.sleep(0.1) #todo: make configurable

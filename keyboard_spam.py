@@ -6,10 +6,11 @@ if hasattr(Key, param):
     key = Key[param]
 else:
     key = param
+delay = float(sys.argv[2]) or 0.1
 
 keyboard = Controller()
 
 while True:
     keyboard.press(key)
     keyboard.release(key)
-    time.sleep(0.1) #todo: make configurable
+    time.sleep(delay)

@@ -1,0 +1,14 @@
+{
+  "Button.button13": {
+    "macro_type": "spam",
+    "target_type": "mouse",
+    "target": "left",
+    "delay": "0.1"
+  },
+  "Button.button12": {
+    "macro_type": "spam",
+    "target_type": "keyboard",
+    "target": "alt",
+    "delay": "0.1"
+  }
+}

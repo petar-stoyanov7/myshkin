@@ -1,8 +1,10 @@
 from pynput.mouse import Button, Listener
 import subprocess, os, sys, signal, json
 
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+
 #todo: replace with user home dir
-with open('./macros.json') as file:
+with open('{}/macros.json'.format(script_dir)) as file:
     macro_data = json.load(file)
 
 def print_button(x, y, button, pressed):
@@ -20,7 +22,7 @@ def parse_mouse_action(x,y,button,pressed):
     if not pressed and str(button) in macro_data:
         button_str = str(button)
         macro = macro_data[button_str]
-        exec_file = "./{}_{}.py".format(macro['target_type'], macro['macro_type'])
+        exec_file = "{}/{}_{}.py".format(script_dir, macro['target_type'], macro['macro_type'])
 
         if not os.path.isfile(exec_file) or not check_macro(macro):
             print("invalid macro")
@@ -33,13 +35,15 @@ def parse_mouse_action(x,y,button,pressed):
                 del(process_list[button_str])
             else:
                 proc = subprocess.Popen(
-                    "./.venv/bin/python3 {} {} {}".format(exec_file, macro['target'], macro['delay']),
+                    "{}/.venv/bin/python3 {} {} {}".format(script_dir,exec_file, macro['target'], macro['delay']),
                     shell=True,
                     preexec_fn=os.setsid
                 )
                 process_list[button_str] = proc.pid
+        elif macro['macro_type'] == 'hold':
+            print('hold') #todo: implement
         else:
-            print('others') #todo: implement other types of macros
+            print('others')
 
 def check_macro(macro_obj):
     if (

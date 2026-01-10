@@ -1,4 +1,10 @@
 {
+  "Button.button9": {
+    "macro_type": "hold",
+    "target_type": "mouse",
+    "target": "left",
+    "delay": null
+  },
   "Button.button13": {
     "macro_type": "spam",
     "target_type": "mouse",

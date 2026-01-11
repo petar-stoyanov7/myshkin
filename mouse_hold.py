@@ -1,9 +1,9 @@
 from pynput.mouse import Button, Controller
-import sys
 
-button = Button[sys.argv[1]]
 mouse = Controller()
 
-#todo: rework
-while True:
-    mouse.press(button)
+def toggle_mouse_hold(button, action):
+    if action == "hold":
+        mouse.press(button)
+    else:
+        mouse.release(button)

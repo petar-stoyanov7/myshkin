@@ -9,8 +9,10 @@ else:
 delay = float(sys.argv[2]) or 0.1
 
 keyboard = Controller()
+max_duration = 20 #seconds, todo: make configurable
+delta = time.time() + max_duration
 
-while True:
+while time.time() < delta:
     keyboard.press(key)
     keyboard.release(key)
     time.sleep(delay)

@@ -1,6 +1,10 @@
 from pynput.keyboard import Key, Controller
 import time, sys
 
+if len(sys.argv) == 1:
+    print("No arguments provided, exiting.")
+    exit()
+
 param = sys.argv[1]
 if hasattr(Key, param):
     key = Key[param]

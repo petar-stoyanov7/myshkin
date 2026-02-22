@@ -1,20 +1,23 @@
 {
   "Button.button9": {
     "macro_type": "hold",
-    "target_type": "mouse",
-    "target": "left",
-    "delay": null
+    "target_type": "keyboard",
+    "target": "w",
+    "delay": null,
+    "duration": 60
   },
   "Button.button13": {
     "macro_type": "spam",
     "target_type": "mouse",
     "target": "left",
-    "delay": "0.1"
+    "delay": "0.1",
+    "duration": 20
   },
   "Button.button12": {
     "macro_type": "spam",
     "target_type": "keyboard",
     "target": "alt",
-    "delay": "0.1"
+    "delay": "0.1",
+    "duration": 20
   }
 }

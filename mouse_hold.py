@@ -1,9 +1,17 @@
 from pynput.mouse import Button, Controller
+import time, sys
 
+if len(sys.argv) == 1:
+    print("No arguments provided, exiting.")
+    exit()
+
+button = Button[sys.argv[1]]
+delay = sys.argv[2] #redundant
+duration = int(sys.argv[3]) or 60
 mouse = Controller()
 
-def toggle_mouse_hold(button, action):
-    if action == "hold":
-        mouse.press(button)
-    else:
-        mouse.release(button)
+#todo: releasing is buggy, fix it!
+
+mouse.press(button)
+time.sleep(duration)
+mouse.release(button)
